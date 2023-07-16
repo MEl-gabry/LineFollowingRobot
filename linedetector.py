@@ -1,11 +1,12 @@
 import cv2
+import numpy as np
 from gopigo import *
 import time
 
 
 cap = cv2.VideoCapture(0)
 
-black = [0, 0, 0]
+black = np.array([0, 0, 0])
 
 
 while True:
@@ -13,9 +14,9 @@ while True:
 
     detect_img = cv2.resize(frame, (3, 3))
 
-    left_detect = frame[0][0] == black or frame[1][0] == black or frame[2][0] == black
-    right_detect = frame[0][1] == black or frame[1][1] == black or frame[2][1] == black
-    straight_detect = frame[0][2] == black or frame[1][2] == black or frame[2][2] == black
+    left_detect = detect_img[0][0] == black or detect_img[1][0] == black or detect_img[2][0] == black
+    right_detect = detect_img[0][1] == black or detect_img[1][1] == black or detect_img[2][1] == black
+    straight_detect = detect_img[0][2] == black or detect_img[1][2] == black or detect_img[2][2] == black
 
     if left_detect:
         left()
