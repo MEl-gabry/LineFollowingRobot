@@ -14,9 +14,9 @@ while True:
 
     detect_img = cv2.resize(frame, (3, 3))
 
-    left_detect = detect_img[0][0] == black or detect_img[1][0] == black or detect_img[2][0] == black
-    right_detect = detect_img[0][1] == black or detect_img[1][1] == black or detect_img[2][1] == black
-    straight_detect = detect_img[0][2] == black or detect_img[1][2] == black or detect_img[2][2] == black
+    left_detect = np.array_equal(detect_img[0][0], black) or np.array_equal(detect_img[1][0], black) or np.array_equal(detect_img[2][0], black)
+    right_detect = np.array_equal(detect_img[0][1], black) or np.array_equal(detect_img[1][1], black) or np.array_equal(detect_img[2][1], black)
+    straight_detect = np.array_equal(detect_img[0][2], black) or np.array_equal(detect_img[1][2], black) or np.array_equal(detect_img[2][2], black)
 
     if left_detect:
         left()
