@@ -1,5 +1,6 @@
 import cv2
 from gopigo import *
+import time
 
 
 cap = cv2.VideoCapture(0)
