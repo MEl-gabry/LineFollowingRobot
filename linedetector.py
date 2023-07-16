@@ -18,10 +18,10 @@ while True:
     right_detect = np.array_equal(detect_img[0][1], black) or np.array_equal(detect_img[1][1], black) or np.array_equal(detect_img[2][1], black)
     straight_detect = np.array_equal(detect_img[0][2], black) or np.array_equal(detect_img[1][2], black) or np.array_equal(detect_img[2][2], black)
 
-    if left_detect:
+    if left_detect and not right_detect:
         left()
         time.sleep(1)
-    elif right_detect:
+    elif right_detect and not left_detect:
         right()
         time.sleep(1)
     elif straight_detect:
